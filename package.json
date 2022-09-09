@@ -16,6 +16,7 @@
     "core-js": "^3.6.5",
     "create-keyframe-animation": "^0.1.0",
     "good-storage": "^1.1.1",
+    "lodash": "^4.17.21",
     "lyric-parser": "^1.0.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/create-keyframe-animation": "^0.1.0",
+    "@types/lodash": "^4.14.184",
     "@types/lyric-parser": "^1.0.2",
     "@vue/cli-plugin-babel": "~4.5.13",
     "@vue/cli-plugin-router": "~4.5.13",

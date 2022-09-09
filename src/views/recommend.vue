@@ -13,7 +13,12 @@
         <div class="recommend-list">
           <h1 class="list-title" v-if="!loading">热门歌单推荐</h1>
           <ul>
-            <li class="item" :key="item.id" v-for="item in data?.albums">
+            <li
+              class="item"
+              :key="item.id"
+              v-for="item in data?.albums"
+              @click="selectItem(item)"
+            >
               <div class="icon">
                 <img v-lazy width="60" height="60" :src="item.pic" alt="" />
               </div>
@@ -30,24 +35,51 @@
         </div>
       </div>
     </Scroll>
+    <!-- <router-view v-slot="{ Component }">
+      <transition appear name="slide">
+        <component :is="Component" :data="selectedAlbum"></component>
+      </transition>
+    </router-view> -->
+    <router-view v-slot="{ Component }">
+      <transition appear name="slide">
+        <component :is="Component" :data="selectedAlbum"></component>
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <script setup lang="ts">
 import RecommendData = Recommend.RecommendData;
-import { getRecommend } from "@/service/recommend";
+import AlbumsType = Recommend.AlbumsType;
+import { getAlbum, getRecommend } from "@/service/recommend";
 import Slider from "@/components/base/slider/slider.vue";
 import Scroll from "@/components/wrap-scroll/wrap-scroll";
 import { computed, ref } from "vue";
+import { useRouter } from "vue-router";
+import storage from "good-storage";
+import { ALBUM_KEY } from "@/assets/ts/constants";
 // 获取推荐数据
 const data = ref<RecommendData>();
 const getRecommendData = async () => {
   data.value = await getRecommend();
+  console.log(data.value);
 };
+// 是否在加载
 const loading = computed(() => {
   return !(data.value?.albums && data.value?.sliders);
 });
 getRecommendData();
+
+const router = useRouter();
+const selectedAlbum = ref<AlbumsType>();
+const cacheAlbum = (album: AlbumsType) => {
+  storage.session.set(ALBUM_KEY, album);
+};
+const selectItem = (album: AlbumsType) => {
+  selectedAlbum.value = album;
+  cacheAlbum(album);
+  router.push(`/recommend/${album.id}`);
+};
 </script>
 
 <style lang="scss" scoped>

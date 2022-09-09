@@ -1,6 +1,6 @@
 import { Ref, ref } from "vue";
 
-export default function useShortcut(props: any, groupRef: Ref) {
+export default function useShortcut(props: any, groupRef: Ref<HTMLElement | undefined>) {
     const INDEX_HEIGHT = 18;
     const scrollRef = ref();
     const shortcutList = ref<Array<string>>([]);
@@ -37,7 +37,7 @@ export default function useShortcut(props: any, groupRef: Ref) {
     function scrollTo(touchIndex: number) {
         if (isNaN(touchIndex)) return;
         touchIndex = Math.max(0, Math.min(shortcutList.value.length - 1, touchIndex));
-        const list = groupRef.value.children as HTMLCollection;
+        const list = groupRef.value!.children as HTMLCollection;
         const scrollTarget = list[touchIndex];
         const scroll = scrollRef.value.scroll;
         scroll.scrollToElement(scrollTarget);

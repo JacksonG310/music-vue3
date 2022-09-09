@@ -27,7 +27,11 @@
       @scroll="onScroll"
     >
       <div class="song-list-wrapper">
-        <song-list :songs="songs" @selectItem="selectItem"></song-list>
+        <song-list
+          :songs="songs"
+          :rank="rank"
+          @selectItem="selectItem"
+        ></song-list>
       </div>
     </Scroll>
   </div>
@@ -49,11 +53,12 @@ const props = defineProps({
   title: String,
   pic: String,
   loading: Boolean,
+  rank: Boolean,
 });
 
 // 单击播放
 const store = useStore();
-const selectItem = ({ song, index }: any) => {
+const selectItem = ({ index }: any) => {
   store.dispatch("setectPlay", {
     list: props.songs,
     index: index as number,

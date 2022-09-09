@@ -47,7 +47,6 @@ import useFixed from "./useFixed";
 import useShortcut from "./useShortcut";
 import SingerGroupType = Singer.SingerGroupType;
 import SingerItemType = Singer.SingerItemType;
-
 const props = defineProps({
   groupList: {
     type: Array as PropType<Array<SingerGroupType>>,

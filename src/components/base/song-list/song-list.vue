@@ -6,6 +6,9 @@
       :key="song.id"
       @click="onSelect(song, index)"
     >
+      <div class="rank" v-if="rank">
+        <span :class="getRankClass(index)">{{ getRankText(index) }}</span>
+      </div>
       <div class="content">
         <h2 class="name">{{ song.name }}</h2>
         <p class="desc">{{ getDesc(song) }}</p>
@@ -20,6 +23,10 @@ defineProps({
   songs: {
     type: Array as () => Array<SongDetailType>,
   },
+  rank: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emits = defineEmits(["selectItem"]);
@@ -30,6 +37,19 @@ const onSelect = (song: SongDetailType, index: number) => {
 
 const getDesc = (song: SongDetailType) => {
   return `${song.singer}-${song.album}`;
+};
+
+const getRankClass = (index: number) => {
+  if (index <= 2) {
+    return `icon icon${index}`;
+  } else {
+    return "text";
+  }
+};
+const getRankText = (index: number) => {
+  if (index > 2) {
+    return index + 1;
+  }
 };
 </script>
 

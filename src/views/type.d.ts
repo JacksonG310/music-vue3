@@ -51,3 +51,21 @@ declare namespace Song {
     }
 
 }
+
+declare namespace TopList {
+    interface TopListDataType {
+        topList: Array<TopListItemType>
+    }
+    interface TopListItemType {
+        id: number,
+        name: string,
+        period: string,
+        pic: string,
+        songList: Array<TopListSongType>
+    }
+    interface TopListSongType {
+        id: number,
+        singerName: string,
+        songName: string,
+    }
+}

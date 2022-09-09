@@ -24,3 +24,14 @@ export function formatTime(interval: number) {
     const second = (interval % 60 + '').padStart(2, '0');
     return `${minute}:${second}`
 }
+
+
+export function debounce<T>(fn: Function, delay: number): Function {
+    let timer: (null | number) = null;
+    return (...rest: Array<T>) => {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn(...rest);
+        }, delay)
+    }
+}
