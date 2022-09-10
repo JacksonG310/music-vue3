@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 const ERR_OK = 0;
-const baseURL = process.env.NODE_ENV === 'production' ? 'http://43.158.207.152:8080/' : '/';
+const baseURL = process.env.NODE_ENV === 'production' ? 'http://43.158.207.152:8080/musicV3' : '/';
 
 
 axios.defaults.baseURL = baseURL;

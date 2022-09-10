@@ -29,6 +29,7 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["update:modelValue"]);
+
 const activeStyle = computed(() => {
   const x = 120 * props.modelValue;
   return {
