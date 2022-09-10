@@ -1,41 +1,42 @@
 {
-  "name": "music",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "@better-scroll/core": "^2.4.2",
-    "@better-scroll/observe-dom": "^2.4.2",
-    "@better-scroll/slide": "^2.4.2",
-    "@types/good-storage": "^1.1.0",
-    "@vueuse/core": "^9.2.0",
-    "axios": "^0.27.2",
-    "core-js": "^3.6.5",
-    "create-keyframe-animation": "^0.1.0",
-    "good-storage": "^1.1.1",
-    "lodash": "^4.17.21",
-    "lyric-parser": "^1.0.1",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
-  },
-  "devDependencies": {
-    "@types/create-keyframe-animation": "^0.1.0",
-    "@types/lodash": "^4.14.184",
-    "@types/lyric-parser": "^1.0.2",
-    "@vue/cli-plugin-babel": "~4.5.13",
-    "@vue/cli-plugin-router": "~4.5.13",
-    "@vue/cli-plugin-typescript": "~4.5.13",
-    "@vue/cli-plugin-vuex": "~4.5.13",
-    "@vue/cli-service": "~4.5.13",
-    "@vue/compiler-sfc": "^3.0.0",
-    "js-base64": "^3.7.2",
-    "pinyin": "2.9.1",
-    "sass": "^1.54.8",
-    "sass-loader": "10.1.0",
-    "typescript": "~4.1.5"
-  }
+    "name": "music",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "deploy": "npm run build && nohup node server/prod.server.js &"
+    },
+    "dependencies": {
+        "@better-scroll/core": "^2.4.2",
+        "@better-scroll/observe-dom": "^2.4.2",
+        "@better-scroll/slide": "^2.4.2",
+        "@types/good-storage": "^1.1.0",
+        "@vueuse/core": "^9.2.0",
+        "axios": "^0.27.2",
+        "core-js": "^3.6.5",
+        "create-keyframe-animation": "^0.1.0",
+        "good-storage": "^1.1.1",
+        "lodash": "^4.17.21",
+        "lyric-parser": "^1.0.1",
+        "vue": "^3.0.0",
+        "vue-router": "^4.0.0-0",
+        "vuex": "^4.0.0-0"
+    },
+    "devDependencies": {
+        "@types/create-keyframe-animation": "^0.1.0",
+        "@types/lodash": "^4.14.184",
+        "@types/lyric-parser": "^1.0.2",
+        "@vue/cli-plugin-babel": "~4.5.13",
+        "@vue/cli-plugin-router": "~4.5.13",
+        "@vue/cli-plugin-typescript": "~4.5.13",
+        "@vue/cli-plugin-vuex": "~4.5.13",
+        "@vue/cli-service": "~4.5.13",
+        "@vue/compiler-sfc": "^3.0.0",
+        "js-base64": "^3.7.2",
+        "pinyin": "2.9.1",
+        "sass": "^1.54.8",
+        "sass-loader": "10.1.0",
+        "typescript": "~4.1.5"
+    }
 }
