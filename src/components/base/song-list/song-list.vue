@@ -28,7 +28,7 @@ const props = defineProps({
     default: false,
   },
 });
-// console.log(props.songs);
+console.log(props.songs);
 
 const emits = defineEmits(["selectItem"]);
 

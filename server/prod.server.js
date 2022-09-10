@@ -31,7 +31,6 @@ app.use(function(err, req, res, next) {
     if (err.code !== 'EBADCSRFTOKEN') {
         return next()
     }
-
     // handle CSRF token errors here
     res.status(403)
 })

@@ -49,7 +49,9 @@ export default function detiailComponentFactory(name, key, fetch) {
                 return
             }
             const result = await fetch(data)
-            this.songs = await processSongs(result.songs)
+            this.songs = await processSongs(result.songs);
+            console.log(this.songs);
+
             this.loading = false
         }
     }
