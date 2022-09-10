@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import SongDetailType = Song.SongDetailType;
-defineProps({
+const props = defineProps({
   songs: {
     type: Array as () => Array<SongDetailType>,
   },
@@ -28,6 +28,7 @@ defineProps({
     default: false,
   },
 });
+console.log(props.songs);
 
 const emits = defineEmits(["selectItem"]);
 
