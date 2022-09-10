@@ -4,17 +4,20 @@
       <i class="icon-back"> </i>
     </div>
     <div class="switcher-wrapper">
-      <Switcher></Switcher>
+      <Switcher
+        :items="['我喜欢的', '最近播放']"
+        v-model="currentIndex"
+      ></Switcher>
     </div>
     <div class="play-btn">
       <i class="icon-play"></i>
       <span class="text">随机播放全部</span>
     </div>
     <div class="list-wrapper">
-      <Scroll>
+      <Scroll class="list-scroll" v-if="currentIndex === 0">
         <div class="list-scroll">
           <div class="list-inner">
-            <SongList></SongList>
+            <!-- <SongList></SongList> -->
           </div>
         </div>
       </Scroll>
@@ -24,8 +27,11 @@
 
 <script setup lang="ts">
 import Scroll from "@/components/base/scroll/scroll.vue";
-import Switcher from "@/components/base/switches/switchrs.vue";
+import Switcher from "@/components/base/switches/switches.vue";
 import SnongList from "@/components/base/song-list/song-list.vue";
+import { ref } from "vue";
+
+const currentIndex = ref(0);
 </script>
 
 <style scoped lang="scss">

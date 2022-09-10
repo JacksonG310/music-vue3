@@ -2,7 +2,11 @@
   <div id="app">
     <Header></Header>
     <Tab></Tab>
-    <router-view :style="routerStyle"> </router-view>
+    <router-view :style="routerStyle" v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"></component>
+      </keep-alive>
+    </router-view>
     <Player></Player>
   </div>
 </template>

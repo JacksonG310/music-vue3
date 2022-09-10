@@ -1,6 +1,9 @@
 const { default: axios } = require("axios");
 const getSecuritySign = require('./sign');
+// const sign = require('./sign');
+
 const { getRandomVal } = require('./utils')
+
 
 const token = 5381;
 const commonParams = {
@@ -37,23 +40,28 @@ function post(url, data) {
 }
 
 async function App() {
-    const url = `https://u.y.qq.com/cgi-bin/musics.fcg`;
-
+    const url = `https://u.y.qq.com/cgi-bin/musics.fcg?`;
 
     const data = JSON.stringify({
-        comm: { ct: 24 },
-        recomPlaylist: {
-            method: 'get_hot_recommend',
-            param: { async: 1, cmd: 2 },
-            module: 'playlist.HotRecommendServer'
-        },
-        focus: { module: 'music.musicHall.MusicHallPlatform', method: 'GetFocus', param: {} }
+        comm: { ct: 24, cv: 4747474, needNewCode: 1, g_tk_new_20200303: token },
+        singerList: {
+            method: "DoSearchForQQMusicDesktop",
+            module: "music.search.SearchCgiService",
+            param: {
+                remoteplace: "txt.yqq.center",
+                searchid: "59500612936611244",
+                search_type: 0,
+                query: "周杰伦",
+                page_num: 1,
+                num_per_page: 10
+            }
+        }
     })
 
     const randomVal = getRandomVal('romm');
     const sign = getSecuritySign(data)
     const res = await get(url, { sign, '-': randomVal, data });
-    debugger;
-    console.log(res.data);
+    console.log(JSON.stringify(res.data));
+
 }
 App();

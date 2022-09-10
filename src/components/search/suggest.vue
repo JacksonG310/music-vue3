@@ -44,25 +44,25 @@ const hasMore = ref(true);
 const page = ref(1);
 
 // 监听query
-watch(
-  () => props.query,
-  async (newQuery) => {
-    if (!newQuery) return;
-    await searchFirst();
-  }
-);
-const searchFirst = async () => {
-  page.value = 1;
-  songs.value = [];
-  singer.value = null;
-  hasMore.value = true;
-  const result = await search(props.query, page.value, props.showSinger);
-  console.log(result);
+// watch(
+//   () => props.query,
+//   async (newQuery) => {
+//     if (!newQuery) return;
+//     await searchFirst();
+//   }
+// );
+// const searchFirst = async () => {
+//   page.value = 1;
+//   songs.value = [];
+//   singer.value = null;
+//   hasMore.value = true;
+//   const result = await search(props.query, page.value, props.showSinger);
+//   console.log(result);
 
-  songs.value = await processSongs(result.songs);
-  singer.value = result.singer;
-  hasMore.value = result.hasMore;
-};
+//   songs.value = await processSongs(result.songs);
+//   singer.value = result.singer;
+//   hasMore.value = result.hasMore;
+// };
 
 const loading = ref(false);
 const noResult = ref(false);

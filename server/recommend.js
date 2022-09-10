@@ -32,7 +32,6 @@ function registerRecommend(app) {
             data
         }).then((response) => {
             const data = response.data
-            console.log(data);
             if (data.code === ERR_OK) {
                 // 处理轮播图数据
                 const focusList = data.focus.data.shelf.v_niche[0].v_card

@@ -51,7 +51,6 @@ function registerSongsUrl(app) {
 
             // 发送 post 请求
             return post(url, data).then((response) => {
-                console.log(response);
                 const data = response.data
                 if (data.code === ERR_OK) {
                     const midInfo = data.req_0.data.midurlinfo

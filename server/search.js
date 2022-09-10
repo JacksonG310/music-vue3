@@ -40,11 +40,10 @@ function registerSearch(app) {
 
         post(url, data).then((response) => {
             const data = response.data
-            console.log(data);
-            //         if (data.code === ERR_OK) {
-            //             const songList = []
-            //             const songData = data.data.song
-            //             const list = songData.list
+                //         if (data.code === ERR_OK) {
+                //             const songList = []
+                //             const songData = data.data.song
+                //             const list = songData.list
 
             //             list.forEach((item) => {
             //                 const info = item

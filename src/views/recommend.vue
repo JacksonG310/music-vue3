@@ -62,7 +62,6 @@ import { ALBUM_KEY } from "@/assets/ts/constants";
 const data = ref<RecommendData>();
 const getRecommendData = async () => {
   data.value = await getRecommend();
-  console.log(data.value);
 };
 // 是否在加载
 const loading = computed(() => {
